@@ -398,8 +398,7 @@ impl Worker {
         let handler = RtcProtocol::new(endpoint.clone());
         let _router = Router::builder(endpoint.clone())
             .accept(RtcProtocol::ALPN, handler.clone())
-            .spawn()
-            .await?;
+            .spawn();
         Ok(Self {
             command_rx,
             event_tx,

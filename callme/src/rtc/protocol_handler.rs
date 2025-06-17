@@ -16,13 +16,11 @@ pub struct RtcProtocol {
 }
 
 impl ProtocolHandler for RtcProtocol {
-    fn accept(&self, connecting: iroh::endpoint::Connecting) -> BoxFuture<Result<()>> {
+    fn accept(&self, connection: iroh::endpoint::Connection) -> BoxFuture<Result<()>> {
         let sender = self.sender.clone();
         async move {
-            debug!("ProtocolHandler::accept: connecting");
-            let conn = connecting.await?;
             debug!("ProtocolHandler::accept: conn");
-            let conn = RtcConnection::new(conn);
+            let conn = RtcConnection::new(connection);
             sender.send(conn).await?;
             Ok(())
         }

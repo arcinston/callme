@@ -11,12 +11,12 @@ description = "make voicecalls over iroh (gui app)"
 crate-type = ["lib", "cdylib"]
 
 [dependencies]
-anyhow = "1.0.96"
+anyhow = "1.0.98"
 async-channel = "2.3.1"
 egui = { version = "0.31.0", default-features = false, features = [
     "color-hex",
 ] }
-iroh = { version = "0.33.0", default-features = false }
+iroh = { version = "0.35.0", default-features = false }
 callme = { version = "0.1.0", path = "../callme", default-features = false }
 n0-future = "0.1.2"
 tokio = { version = "1.43.0", features = ["rt", "rt-multi-thread", "sync"] }

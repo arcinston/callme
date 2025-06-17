@@ -69,8 +69,7 @@ async fn main() -> anyhow::Result<()> {
                 let proto = RtcProtocol::new(endpoint.clone());
                 let _router = Router::builder(endpoint.clone())
                     .accept(RtcProtocol::ALPN, proto.clone())
-                    .spawn()
-                    .await?;
+                    .spawn();
 
                 endpoint_shutdown = Some(endpoint.clone());
                 println!("our node id:\n{}", endpoint.node_id());

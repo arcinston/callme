@@ -32,8 +32,7 @@ mod tests {
         let proto = RtcProtocol::new(endpoint.clone());
         let router = Router::builder(endpoint)
             .accept(RtcProtocol::ALPN, proto.clone())
-            .spawn()
-            .await?;
+            .spawn();
         Ok((router, proto))
     }
 
